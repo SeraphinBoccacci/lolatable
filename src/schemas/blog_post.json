@@ -1,0 +1,174 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "URL"
+      }
+    },
+    "article_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Titre de l'article"
+      }
+    },
+    "article_catch_phrase": {
+      "type": "Text",
+      "config": {
+        "label": "Description/Accroche de l'article"
+      }
+    },
+    "article_date": {
+      "type": "Date",
+      "config": {
+        "label": "Date de l'article"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "texte": [
+            {
+              "name": "left",
+              "display": "Aligné à gauche"
+            },
+            {
+              "name": "right",
+              "display": "Aligné à droite"
+            },
+            {
+              "name": "centered",
+              "display": "Aligné au centre"
+            },
+            {
+              "name": "justified",
+              "display": "Justifié"
+            }
+          ],
+          "texte_illustre": [
+            {
+              "name": "image_on_left",
+              "display": "Image sur la gauche"
+            },
+            {
+              "name": "image_on_right",
+              "display": "Image sur la droite"
+            }
+          ],
+          "reseaux": [],
+          "gallerie_d_image_s_": [
+            {
+              "name": "grid",
+              "display": "En panneau"
+            },
+            {
+              "name": "row",
+              "display": "Horizontale"
+            },
+            {
+              "name": "column",
+              "display": "Verticale"
+            }
+          ]
+        },
+        "choices": {
+          "texte": {
+            "type": "Slice",
+            "fieldset": "Texte",
+            "description": "text",
+            "icon": "text_fields",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "tetx_field": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Champ de texte"
+                }
+              }
+            }
+          },
+          "texte_illustre": {
+            "type": "Slice",
+            "fieldset": "Texte Illustré",
+            "description": "illustrated_text",
+            "icon": "picture_in_picture",
+            "display": "list",
+            "non-repeat": {
+              "illustration": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Illustration"
+                }
+              }
+            },
+            "repeat": {
+              "text_field": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Champ de texte"
+                }
+              }
+            }
+          },
+          "reseaux": {
+            "type": "Slice",
+            "fieldset": "Réseaux",
+            "description": "Intégrer une vidéo, un tweet, un post insta, etc",
+            "icon": "wifi",
+            "display": "list",
+            "non-repeat": {
+              "media": {
+                "type": "Embed",
+                "config": {
+                  "label": "Média"
+                }
+              },
+              "caption": {
+                "type": "Text",
+                "config": {
+                  "label": "Légende"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "gallerie_d_image_s_": {
+            "type": "Slice",
+            "fieldset": "Gallerie d'image(s)",
+            "description": "Image(s) pouvant positionnée(s) de différentes manières",
+            "icon": "face",
+            "display": "list",
+            "non-repeat": {
+              "caption": {
+                "type": "Text",
+                "config": {
+                  "label": "Légende"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
