@@ -1,0 +1,8 @@
+.movable {
+  width: max-content;
+  height: max-content;
+  position: absolute;
+  z-index: 999999999;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%);
+}

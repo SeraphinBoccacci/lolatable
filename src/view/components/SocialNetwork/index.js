@@ -1,5 +1,8 @@
 /* eslint-disable camelcase */
+import PropTypes from "prop-types";
 import React from "react";
+
+import { compose } from "../../../utils/classNames";
 import style from "./style.module.css";
 
 export const SocialNetwork = (props) => {
@@ -7,14 +10,14 @@ export const SocialNetwork = (props) => {
   const { type } = props;
 
   const icon_fa = {
-    facebook: " fa-facebook",
+    facebook: "fa-facebook",
     twitter: "fa-twitter",
     instagram: "fa-instagram",
     linkedin: "fa-linkedin",
   }[type];
 
   return (
-    <a href="#" className={style.social_link + " " + style[type]}>
+    <a href="#" className={compose([style.social_link, style[type]])}>
       <span></span>
       <span></span>
       <span></span>
@@ -22,4 +25,9 @@ export const SocialNetwork = (props) => {
       <span className={`fa ${icon_fa}`} aria-hidden="true"></span>
     </a>
   );
+};
+
+SocialNetwork.propTypes = {
+  type: PropTypes.string,
+  breakpoint: PropTypes.object,
 };

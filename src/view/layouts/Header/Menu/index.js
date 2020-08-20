@@ -1,6 +1,10 @@
-import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
+
 import { compose } from "../../../../utils/classNames";
+import Cities from "./Cities";
+import MenuButton from "./MenuButton";
+import style from "./style.module.css";
 
 const backgroundVariants = {
   initial: {
@@ -32,22 +36,18 @@ const menuVariants = {
 
 const Menu = () => {
   const [isMenuOpenned, setIsMenuOpenned] = useState(false);
-  return (
-    <>
-      <button
-        onClick={() => setIsMenuOpenned(true)}
-        className={compose([
-          "bg-transparent",
-          "w-48",
-          "border-transparent",
-          "text-soft_black",
-          "font-second",
-          "text-lg",
-        ])}
-      >
-        Menu
-      </button>
+  const [opennedSubMenuIndex, setOpennedSubMenuIndex] = useState(null);
 
+  return (
+    <div
+      onMouseEnter={() => setIsMenuOpenned(true)}
+      onMouseLeave={() => setIsMenuOpenned(false)}
+      className="h-full"
+    >
+      <MenuButton
+        setIsMenuOpenned={setIsMenuOpenned}
+        isMenuOpenned={isMenuOpenned}
+      ></MenuButton>
       <AnimatePresence exitBeforeEnter>
         {isMenuOpenned ? (
           <>
@@ -66,12 +66,28 @@ const Menu = () => {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="fixed  top-0 left-0 h-screen bg-white"
-            ></motion.div>
+              className={compose([
+                "fixed top-0 left-0 h-screen bg-white",
+                opennedSubMenuIndex ? "" : "overflow-hidden",
+              ])}
+            >
+              <div className="w-72">
+                <div className="relative w-full">
+                  <h3 className={style.menuTitle}>Par ville</h3>
+                  <Cities
+                    setOpennedSubMenuIndex={setOpennedSubMenuIndex}
+                    opennedSubMenuIndex={opennedSubMenuIndex}
+                  ></Cities>
+                </div>
+
+                <h3 className={style.menuTitle}>Par mots clés</h3>
+                <h3 className={style.menuTitle}>Par ville</h3>
+              </div>
+            </motion.div>
           </>
         ) : null}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 

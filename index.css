@@ -1,7 +1,43 @@
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:wght@300;400&family=Raleway&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@200;400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+html,
+html * {
+  @apply cursor-none;
+}
+
+/* --------------------------------------- */
+
+.centeredX {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.centeredY {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.centeredXY {
+  position: relative;
+  transform: translateY(-50%) translateX(-50%);
+  top: 50%;
+  left: 50%;
+}
+
+.translate-z-0 {
+  transform: perspective(500px) translateZ(0);
+}
+
+.translate-z-100 {
+  transform: perspective(500px) translateZ(100px);
+}

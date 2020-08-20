@@ -1,51 +1,48 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
 .social_link {
-  position: relative;
-  list-style: none;
   width: 30px;
   height: 30px;
-  margin: 0px 10px;
+  margin: 2px 5px;
+
+  @apply relative list-none;
 }
+
 .social_link span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex !important;
   background: #2a2a2a;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
   font-size: 20px !important;
-  transition: 1s ease-out;
+
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center text-white duration-1000;
 }
+
 .social_link:hover span {
-  z-index: 1000;
-  transition: 0.5s;
-  color: #fff;
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  @apply z-50 duration-500 text-white;
 }
 
 .social_link:hover span:nth-child(5) {
   transform: translate(16px, -16px);
   opacity: 1;
 }
+
 .social_link:hover span:nth-child(4) {
   transform: translate(12px, -12px);
   opacity: 0.8;
 }
+
 .social_link:hover span:nth-child(3) {
   transform: translate(8px, -8px);
   opacity: 0.6;
 }
+
 .social_link:hover span:nth-child(2) {
   transform: translate(4px, -4px);
   opacity: 0.4;
 }
+
 .social_link:hover span:nth-child(1) {
-  transform: translate(0px, 0px);
+  transform: translate(0, 0);
   opacity: 0.2;
 }
 
@@ -70,4 +67,16 @@
 
 .linkedin:hover span {
   background: #3b5998 !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .social_link {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+  }
+
+  .social_link span {
+    font-size: 15px !important;
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
-import { SocialNetwork } from "./SocialNetwork";
+
+import { SocialNetwork } from "../../../../components/SocialNetwork";
 import style from "./style.module.css";
 
 export const SocialNetworks = () => {

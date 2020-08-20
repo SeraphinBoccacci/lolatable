@@ -3,7 +3,12 @@
     "browser": true,
     "es2020": true
   },
-  "extends": ["plugin:react/recommended", "google"],
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "google",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -11,8 +16,13 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "simple-import-sort", "prettier"],
   "rules": {
+    "simple-import-sort/sort": "error",
+    "sort-imports": "off",
+    "import/order": "off",
+    "prettier/prettier": ["error"],
+    "max-len": 0,
     "semi": [2, "always"],
     "quotes": ["error", "double"],
     "no-console": 2,

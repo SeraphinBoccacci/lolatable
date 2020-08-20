@@ -1,0 +1,17 @@
+.menuTitle {
+  @apply text-2xl text-center font-main my-10;
+}
+
+.menu {
+  @apply w-48;
+}
+
+.menuBig {
+  @apply bg-transparent h-16 border-none font-second text-lg cursor-none;
+}
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    width: 4rem;
+  }
+}

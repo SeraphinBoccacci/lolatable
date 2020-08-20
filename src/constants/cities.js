@@ -1,10 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable comma-dangle */
-/* eslint-disable indent */
-
-const path = require("path");
-
-const cities = [
+export default [
   {
     value: "Paris",
     label: "Paris",
@@ -39,19 +33,3 @@ const cities = [
     ],
   },
 ];
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
-  const homeTemplate = path.resolve("src/templates/HomeTemplate/index.js");
-
-  cities.forEach(({ value }) => {
-    createPage({
-      path: `${value}`,
-      component: homeTemplate,
-      context: {
-        city: value,
-      },
-    });
-  });
-};

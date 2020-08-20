@@ -1,29 +1,19 @@
+/* eslint-disable react/display-name */
 import { graphql } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 
-import Home from "../view/containers/Home";
+import Home from "../../view/containers/Home";
 
-const IndexPage = (props) => {
+const HomeTemplate = (props) => {
   return <Home {...props}></Home>;
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    prismic: PropTypes.shape({
-      allBlog_posts: PropTypes.shape({
-        edges: PropTypes.array,
-      }),
-    }),
-  }),
-};
-
-export default IndexPage;
+export default HomeTemplate;
 
 export const query = graphql`
-  query PostsQuery {
+  query loadPagesQuery($city: String!) {
     prismic {
-      allBlog_posts {
+      allBlog_posts(where: { city: $city }) {
         edges {
           node {
             _meta {

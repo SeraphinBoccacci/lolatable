@@ -1,9 +1,13 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import "./index.css";
 
-// You can delete this file if you're not using it
+import { registerLinkResolver } from "gatsby-source-prismic-graphql";
+import React from "react";
 
-import "./index.css"
+import CursorProvider from "./src/Providers/CursorProvider";
+import { linkResolver } from "./src/utils/linkResolver";
+
+export const wrapRootElement = ({ element }) => {
+  return <CursorProvider>{element}</CursorProvider>;
+};
+
+registerLinkResolver(linkResolver);

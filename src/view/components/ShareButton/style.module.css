@@ -1,0 +1,80 @@
+.btn_share {
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  outline: none !important;
+
+  @apply relative bg-primary w-56 h-12 rounded-full text-white border-none outline-none;
+}
+
+.btn_share::before {
+  content: "";
+  z-index: -1;
+  border-radius: 24px;
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+.btn_share::after {
+  content: "";
+  top: 100%;
+
+  @apply absolute left-0 z-20 w-full h-full bg-white;
+}
+
+.btn_share:hover::before {
+  transform: scale(1.2);
+}
+
+.btn_share:hover .btn_text,
+.btn_share:hover .btn_icon {
+  transform: translateY(-55px);
+}
+
+.btn_text,
+.btn_icon {
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  @apply inline-flex align-middle;
+}
+
+.btn_text {
+  transition-delay: 0.05s;
+}
+
+.btn_icon {
+  margin-left: 8px;
+  transition-delay: 0.1s;
+}
+
+.social_icons {
+  top: 100%;
+
+  @apply absolute h-full left-0 right-0 flex justify-evenly items-center m-0 list-none px-4 duration-300;
+}
+
+.social_icons > li {
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  flex: 1;
+
+  @apply flex flex-col justify-center items-center h-full;
+}
+
+.btn_share:hover .social_icons li {
+  transform: translateY(-100%);
+}
+
+.btn_share .social_icons li:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.btn_share .social_icons li:nth-child(2) {
+  transition-delay: 0.05s;
+}
+
+.btn_share .social_icons li:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+.btn_share .social_icons li:nth-child(4) {
+  transition-delay: 0.15s;
+}

@@ -11,14 +11,21 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-prismic",
+      resolve: "gatsby-source-prismic-graphql",
       options: {
         repositoryName: "lolablog",
+        defaultLang: "fr-fr",
+        langs: ["en-us", "fr-fr"],
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => (post) => `/${post.uid}`,
-        schemas: {
-          blog_post: require("./src/schemas/blog_post.json"),
-        },
+        previews: false,
+        sharpKeys: [/image|photo|picture/],
+        pages: [
+          {
+            type: "Blog_post",
+            match: "/blog_post/:uid",
+            component: require.resolve("./src/templates/BlogPost/index.js"),
+          },
+        ],
       },
     },
     "gatsby-plugin-react-helmet",
@@ -28,6 +35,18 @@ module.exports = {
       options: {
         name: "images",
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-breakpoints",
+      options: {
+        queries: {
+          xs: "(max-width: 320px)",
+          sm: "(max-width: 720px)",
+          md: "(max-width: 1024px)",
+          l: "(max-width: 1536px)",
+          portrait: "(orientation: portrait)",
+        },
       },
     },
     "gatsby-transformer-sharp",

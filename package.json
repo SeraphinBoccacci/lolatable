@@ -1,24 +1,29 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "lolawebsite",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple blog talking about restaurants",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Séraphin Boccacci <seraphinboccacci@gmail.com>",
   "dependencies": {
+    "classnames": "^2.2.6",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.20.5",
     "framer-motion": "^2.3.0",
-    "gatsby": "^2.23.12",
-    "gatsby-cli": "^2.12.72",
+    "gatsby": "^2.20.19",
+    "gatsby-cli": "^2.12.79",
     "gatsby-image": "^2.4.9",
+    "gatsby-plugin-breakpoints": "^1.2.2",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-offline": "^3.2.13",
     "gatsby-plugin-postcss": "^2.3.11",
     "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-sharp": "^2.6.14",
-    "gatsby-source-filesystem": "^2.3.14",
+    "gatsby-plugin-sharp": "^2.5.4",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-source-graphql-universal": "^3.3.0",
     "gatsby-source-prismic": "^3.2.1",
-    "gatsby-transformer-sharp": "^2.5.7",
+    "gatsby-source-prismic-graphql": "^3.6.2",
+    "gatsby-transformer-sharp": "^2.4.4",
+    "prismic-reactjs": "^1.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -28,7 +33,13 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "prettier": "^2.0.5"
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "npm-force-resolutions": "^0.0.3",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
   },
   "keywords": [
     "gatsby"
@@ -37,17 +48,13 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "resolutions": {
+    "gatsby-source-graphql-universal": "3.3.0"
   }
 }

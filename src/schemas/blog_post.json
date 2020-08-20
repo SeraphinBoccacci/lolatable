@@ -7,9 +7,8 @@
       }
     },
     "article_title": {
-      "type": "StructuredText",
+      "type": "Text",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
         "label": "Titre de l'article"
       }
     },
@@ -23,6 +22,21 @@
       "type": "Date",
       "config": {
         "label": "Date de l'article"
+      }
+    },
+    "city": {
+      "type": "Select",
+      "config": {
+        "options": ["Paris", "Lyon", "Villefranche"],
+        "label": "Ville"
+      }
+    },
+    "cover_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image de couverture"
       }
     },
     "body": {
@@ -83,7 +97,7 @@
             "display": "list",
             "non-repeat": {},
             "repeat": {
-              "tetx_field": {
+              "text_field": {
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",

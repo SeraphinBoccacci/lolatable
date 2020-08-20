@@ -1,17 +1,13 @@
 .top_fader {
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  width: 100vw;
   height: 5rem;
   background: linear-gradient(to bottom, #ffffff, #ffffff00);
+
+  @apply absolute z-10 top-0 w-screen;
 }
 
 .bottom_fader {
-  position: absolute;
-  z-index: 10;
-  bottom: 0;
-  width: 100vw;
   height: 5rem;
   background: linear-gradient(to top, #ffffff, #ffffff00);
+
+  @apply absolute z-10 bottom-0 w-screen;
 }

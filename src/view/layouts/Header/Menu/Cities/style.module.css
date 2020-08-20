@@ -1,0 +1,27 @@
+.menuElement {
+  @apply relative text-lg w-max-content mx-auto text-center font-second my-4;
+}
+
+.menuElement::before {
+  content: "";
+
+  @apply absolute bottom-px-1 left-0 w-full h-0 bg-primary duration-300;
+}
+
+.menuElement:hover::before {
+  @apply h-1;
+}
+
+.menuSubElement {
+  @apply relative w-max-content mx-auto text-sm text-center font-third my-4;
+}
+
+.menuSubElement::before {
+  content: "";
+
+  @apply absolute bottom-px-1 left-0 w-full h-0 bg-white duration-300;
+}
+
+.menuSubElement:hover::before {
+  @apply h-1;
+}

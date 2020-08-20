@@ -1,0 +1,58 @@
+.heading1 {
+  @apply text-4xl font-main;
+}
+
+.heading2 {
+  @apply text-3xl font-main;
+}
+
+.heading3 {
+  @apply text-2xl font-second font-bold;
+}
+
+.heading4 {
+  @apply text-xl font-second font-semibold;
+}
+
+.heading5 {
+  @apply text-lg font-third font-bold;
+}
+
+.heading6 {
+  @apply text-base font-third font-semibold;
+}
+
+/* .hyperLink {
+} */
+
+.image {
+  @apply shadow-xl;
+}
+
+.list {
+  @apply list-square w-max-content max-w-full mx-auto px-16 mt-4 mb-10;
+}
+
+.listItem {
+  @apply my-2;
+}
+
+.oList {
+  @apply list-roman w-max-content max-w-full mx-auto px-8 mt-4 mb-10;
+}
+
+.oListItem {
+  @apply my-2 mx-6;
+}
+
+.paragraph {
+  text-align-last: center;
+
+  @apply my-2 text-justify;
+}
+
+/* .strong {
+}
+
+.em {
+} */
