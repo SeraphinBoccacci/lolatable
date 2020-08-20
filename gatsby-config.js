@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: ".env",
 });
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
         repositoryName: "lolablog",
         defaultLang: "fr-fr",
         langs: ["en-us", "fr-fr"],
-        accessToken: `${process.env.API_KEY}`,
+        accessToken: `${process.env.PRISMIC_ACCESS_TOKEN}`,
         previews: false,
         sharpKeys: [/image|photo|picture/],
         pages: [
