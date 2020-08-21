@@ -4,7 +4,6 @@ import React from "react";
 import Header from "./Header";
 
 const Layout = ({ children, headerHeight }) => {
-  console.log(process.env.NODE_ENV);
   return (
     <div className="fixed top-0 left-0 w-screen h-screen flex flex-col">
       <Header headerHeight={headerHeight} />

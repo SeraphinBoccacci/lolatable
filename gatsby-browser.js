@@ -1,13 +1,10 @@
 import "./index.css";
 
 import { registerLinkResolver } from "gatsby-source-prismic-graphql";
-import React from "react";
 
-import CursorProvider from "./src/Providers/CursorProvider";
 import { linkResolver } from "./src/utils/linkResolver";
+import wrapProvider from "./wrapProvider";
 
-export const wrapRootElement = ({ element }) => {
-  return <CursorProvider>{element}</CursorProvider>;
-};
+export const wrapRootElement = wrapProvider;
 
 registerLinkResolver(linkResolver);
