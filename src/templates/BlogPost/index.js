@@ -6,11 +6,14 @@ import React from "react";
 
 import Footer from "./Footer";
 import Header from "./Header";
+import PrismicBlogPostBodyImages from "./slices/PrismicBlogPostBodyImages";
 import PrismicBlogPostBodyTexte from "./slices/PrismicBlogPostBodyTexte";
 import PrismicBlogPostBodyTexteIllustre from "./slices/PrismicBlogPostBodyTexteIllustre";
+
 const sliceMapper = {
   PRISMIC_Blog_postBodyTexte: PrismicBlogPostBodyTexte,
   PRISMIC_Blog_postBodyTexte_illustre: PrismicBlogPostBodyTexteIllustre,
+  PRISMIC_Blog_postBodyGallerie_d_image_s_: PrismicBlogPostBodyImages,
 };
 
 const BlogPost = ({
