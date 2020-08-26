@@ -1,0 +1,6 @@
+.container {
+  backdrop-filter: blur(10px);
+
+  @apply fixed z-20 w-screen h-header flex flex-row
+    justify-between px-6;
+}

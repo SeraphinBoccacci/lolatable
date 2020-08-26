@@ -23,6 +23,7 @@
     "gatsby-source-prismic": "^3.2.1",
     "gatsby-source-prismic-graphql": "^3.6.2",
     "gatsby-transformer-sharp": "^2.4.4",
+    "moment": "^2.27.0",
     "prismic-reactjs": "^1.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -52,7 +53,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-
   },
   "resolutions": {
     "gatsby-source-graphql-universal": "3.3.0"

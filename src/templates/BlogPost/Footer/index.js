@@ -21,7 +21,7 @@ const Footer = ({ posts }) => {
           <div className="flex flex-row justify-evenly my-16">
             {posts.map((post) =>
               post.cover_image.url ? (
-                <Link to={`/blog_posts/${post._meta.uid}`} key={post._meta.uid}>
+                <Link to={`/blog_post/${post._meta.uid}`} key={post._meta.uid}>
                   <ArticlePreview
                     articleDate={
                       post.article_date || post._meta.last_publication_date

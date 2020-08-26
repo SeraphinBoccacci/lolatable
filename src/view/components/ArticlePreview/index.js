@@ -22,6 +22,7 @@ const ArticlePreview = (props) => {
           onCursor("articlePreviewPointer", { articleDate, articleTitle })
         }
         onMouseLeave={() => onCursor(false)}
+        onClick={() => onCursor(false)}
         className={compose([
           "rounded-lg",
           "relative",

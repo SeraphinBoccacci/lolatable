@@ -4,12 +4,12 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
+import Layout from "../../view/layouts/mainLayout";
 import Footer from "./Footer";
 import Header from "./Header";
 import PrismicBlogPostBodyImages from "./slices/PrismicBlogPostBodyImages";
 import PrismicBlogPostBodyTexte from "./slices/PrismicBlogPostBodyTexte";
 import PrismicBlogPostBodyTexteIllustre from "./slices/PrismicBlogPostBodyTexteIllustre";
-
 const sliceMapper = {
   PRISMIC_Blog_postBodyTexte: PrismicBlogPostBodyTexte,
   PRISMIC_Blog_postBodyTexte_illustre: PrismicBlogPostBodyTexteIllustre,
@@ -26,7 +26,7 @@ const BlogPost = ({
   const posts = [prevArticle, nextArticle].filter(Boolean);
 
   return (
-    <div>
+    <Layout>
       <Header
         articleTitle={blog_post.article_title}
         articleDate={
@@ -44,7 +44,7 @@ const BlogPost = ({
         })}
       </main>
       <Footer posts={posts}></Footer>
-    </div>
+    </Layout>
   );
 };
 

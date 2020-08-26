@@ -1,3 +1,4 @@
+import moment from "moment";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -12,7 +13,7 @@ const ArticlePreviewPointer = (props) => {
         {articleTitle}
       </h3>
       <h4 className={compose(["text-center", "font-second", "text-xs"])}>
-        {articleDate}
+        {moment(articleDate).format("DD-MM-YYYY")}
       </h4>
     </div>
   );

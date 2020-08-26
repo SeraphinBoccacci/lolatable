@@ -1,25 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { compose } from "../../../utils/classNames";
 import Menu from "./Menu";
 import { RightNode } from "./RightNode";
+import style from "./style.module.css";
 
 const Header = ({ headerHeight: headerheight }) => {
   return (
-    <header
-      className={compose([
-        "fixed",
-        "z-20",
-        "w-screen",
-        "h-header",
-        "flex",
-        "flex-row",
-        "justify-between",
-        "px-6",
-      ])}
-    >
+    <header className={style.container}>
       <div
         className="absolute left-0 w-full bg-primary bottom-0"
         style={{ height: headerheight, zIndex: -1, transition: "0.3s" }}
@@ -31,7 +21,7 @@ const Header = ({ headerHeight: headerheight }) => {
             to="/"
             className="font-main text-soft_black no-underline text-3xl"
           >
-            Lola Blog
+            Lol'à Table
           </Link>
         </h1>
       </div>
