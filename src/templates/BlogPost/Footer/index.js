@@ -23,7 +23,7 @@ const Footer = ({ posts }) => {
           <h3 className="w-max-content mx-auto my-8 font-second text-xl">
             Plus d'articles :
           </h3>
-          <div className="flex flex-col sm:flex-row justify-evenly items-center my-16">
+          <div className="flex flex-col sm:flex-row justify-evenly items-center my-16 px-10">
             {posts.map((post) => {
               const isLandscape =
                 post.cover_image.dimensions.height <

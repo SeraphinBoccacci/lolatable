@@ -30,7 +30,8 @@ const ArticlePreview = (props) => {
           "rounded-lg",
           "relative",
           "bg-transparent",
-          "m-10",
+          "my-10",
+          "sm:mx-10",
           "overflow-hidden",
           "shadow-xl",
           "w-max-content",
@@ -54,16 +55,35 @@ const ArticlePreview = (props) => {
             "group",
           ])}
         ></div>
-        <img
-          className={compose([
-            "duration-500",
-            "rounded-lg",
-            isLandscape ? "h-48 md:h-64" : "w-48 md:w-64",
-            isHover ? "translate-z-100" : "translate-z-0",
-            "max-w-full",
-          ])}
-          src={image}
-        ></img>
+        <div
+          style={{
+            background: `url(${image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+          }}
+          className={`
+          duration-500
+          rounded-lg
+          ${
+            isLandscape
+              ? `
+              h-48
+              md:h-64
+              w-72 
+              md:w-80
+              `
+              : `
+              w-48
+              md:w-64
+              h-72
+              md:h-80
+              `
+          }
+          ${isHover ? "translate-z-100" : "translate-z-0"}
+          max-w-full
+          `}
+        ></div>
       </div>
     </Link>
   );
