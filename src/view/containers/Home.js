@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 
@@ -65,19 +64,24 @@ const HomeTemplate = (props) => {
               "h-max-content",
             ])}
           >
-            {data?.prismic?.allBlog_posts?.edges.map(({ node }) =>
-              node.cover_image.url ? (
-                <Link to={`/blog_post/${node._meta.uid}`} key={node._meta.uid}>
-                  <ArticlePreview
-                    articleDate={
-                      node.article_date || node._meta.last_publication_date
-                    }
-                    articleTitle={node.article_title}
-                    image={node.cover_image.url}
-                  ></ArticlePreview>
-                </Link>
-              ) : null
-            ) || null}
+            {data?.prismic?.allBlog_posts?.edges.map(({ node }) => {
+              const isLandscape =
+                node.cover_image.dimensions.height <
+                node.cover_image.dimensions.width;
+
+              return node.cover_image.url ? (
+                <ArticlePreview
+                  key={node._meta.uid}
+                  to={`/blog_post/${node._meta.uid}`}
+                  articleDate={
+                    node.article_date || node._meta.last_publication_date
+                  }
+                  articleTitle={node.article_title}
+                  image={node.cover_image.url}
+                  isLandscape={isLandscape}
+                ></ArticlePreview>
+              ) : null;
+            }) || null}
           </div>
         </div>
         <div className={style.bottom_fader}></div>

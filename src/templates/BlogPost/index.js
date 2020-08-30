@@ -34,7 +34,7 @@ const BlogPost = ({
         }
         imageSrc={blog_post.cover_image.url}
       ></Header>
-      <main className="my-12 px-12 font-third">
+      <main className="w-screen my-12 px-12 font-third">
         {blog_post.body.map((slice, sliceIndex) => {
           const Slice = sliceMapper[slice.__typename];
 

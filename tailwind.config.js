@@ -18,26 +18,31 @@ module.exports = {
       third: ["Montserrat", "serif"],
     },
     extend: {
+      screens: {
+        tablet: "320px",
+        laptop: "720px",
+        desktop: "1024px",
+      },
       rotate: {
         "-5": "-5deg",
         135: "135deg",
       },
-      width: {
+      spacing: {
         "max-content": "max-content",
-        "11/10": "150%",
         "72": "18rem",
         "80": "20rem",
         "96": "24rem",
         "112": "28rem",
         "128": "32rem",
         "144": "36rem",
+        "160": "40rem",
+      },
+      width: {
+        "11/10": "150%",
       },
       height: {
-        "max-content": "max-content",
         screen_without_header: "calc(100vh - 110px)",
         header: "70px",
-        "144": "36rem",
-        "160": "40rem",
       },
       maxWidth: {
         screen: "100vh",

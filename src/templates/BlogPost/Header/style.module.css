@@ -1,6 +1,4 @@
 .title {
   font-variant-caps: small-caps;
   font-weight: 800;
-
-  @apply font-second my-8 px-8 text-4xl;
 }

@@ -6,7 +6,14 @@ import React from "react";
 import htmlSerializer from "../../../utils/htmlSerializer";
 
 const PrismicBlogPostBodyTexte = ({ slice, sliceIndex }) => (
-  <div className="w-144 my-12 mx-auto">
+  <div
+    className={`
+  w-144 
+  max-w-full 
+  my-12 
+  mx-auto
+  `}
+  >
     {slice.fields.map(({ text_field }, index) => (
       <div key={`${sliceIndex}-${index}`} className="my-8">
         <RichText

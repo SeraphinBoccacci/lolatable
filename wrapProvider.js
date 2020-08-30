@@ -7,6 +7,7 @@ import CursorProvider from "./src/Providers/CursorProvider";
 
 const wrapRootElement = ({ element }) => {
   moment().locale("fr");
+
   return <CursorProvider>{element}</CursorProvider>;
 };
 

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,30 +7,41 @@ import ShareButton from "../../../view/components/ShareButton";
 
 const Footer = ({ posts }) => {
   return (
-    <footer className="flex flex-col">
+    <footer
+      className={`
+    w-full 
+    flex
+    flex-col
+    `}
+    >
       <div className="w-max-content mx-auto my-12">
         <ShareButton></ShareButton>
       </div>
       <hr></hr>
       {posts.length ? (
-        <div>
+        <div className="w-full">
           <h3 className="w-max-content mx-auto my-8 font-second text-xl">
             Plus d'articles :
           </h3>
-          <div className="flex flex-row justify-evenly my-16">
-            {posts.map((post) =>
-              post.cover_image.url ? (
-                <Link to={`/blog_post/${post._meta.uid}`} key={post._meta.uid}>
-                  <ArticlePreview
-                    articleDate={
-                      post.article_date || post._meta.last_publication_date
-                    }
-                    articleTitle={post.article_title}
-                    image={post.cover_image.url}
-                  ></ArticlePreview>
-                </Link>
-              ) : null
-            )}
+          <div className="flex flex-col sm:flex-row justify-evenly items-center my-16">
+            {posts.map((post) => {
+              const isLandscape =
+                post.cover_image.dimensions.height <
+                post.cover_image.dimensions.width;
+
+              return post.cover_image.url ? (
+                <ArticlePreview
+                  key={post._meta.uid}
+                  to={`/blog_post/${post._meta.uid}`}
+                  articleDate={
+                    post.article_date || post._meta.last_publication_date
+                  }
+                  articleTitle={post.article_title}
+                  image={post.cover_image.url}
+                  isLandscape={isLandscape}
+                ></ArticlePreview>
+              ) : null;
+            })}
           </div>
           <div></div>
         </div>

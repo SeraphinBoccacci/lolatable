@@ -10,11 +10,17 @@
 
 html,
 html * {
-  @apply cursor-none;
+  @apply cursor-auto;
+}
+
+@media (min-width: 1280px) {
+  html,
+  html * {
+    @apply cursor-none;
+  }
 }
 
 /* --------------------------------------- */
-
 .centeredX {
   position: relative;
   transform: translateX(-50%);

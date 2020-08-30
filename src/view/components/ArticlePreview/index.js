@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -6,17 +7,19 @@ import { compose } from "../../../utils/classNames";
 
 const ArticlePreview = (props) => {
   const {
+    to,
     image,
     articleTitle,
     articleDate,
     index,
+    isLandscape,
     context: { onCursor },
   } = props;
 
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <>
+    <Link to={to}>
       <div
         onMouseEnter={() =>
           onCursor("articlePreviewPointer", { articleDate, articleTitle })
@@ -27,11 +30,12 @@ const ArticlePreview = (props) => {
           "rounded-lg",
           "relative",
           "bg-transparent",
-          "w-64",
-          "h-max-content",
-          "mx-4 my-4",
+          "m-10",
           "overflow-hidden",
           "shadow-xl",
+          "w-max-content",
+          "h-max-content",
+          "max-w-full",
         ])}
         key={`article-preview-${index}`}
       >
@@ -52,24 +56,27 @@ const ArticlePreview = (props) => {
         ></div>
         <img
           className={compose([
-            "w-full",
             "duration-500",
             "rounded-lg",
+            isLandscape ? "h-48 md:h-64" : "w-48 md:w-64",
             isHover ? "translate-z-100" : "translate-z-0",
+            "max-w-full",
           ])}
           src={image}
         ></img>
       </div>
-    </>
+    </Link>
   );
 };
 
 ArticlePreview.propTypes = {
+  to: PropTypes.string.isRequired,
   image: PropTypes.string,
   articleTitle: PropTypes.string,
   articleDate: PropTypes.string,
   context: PropTypes.shape({ onCursor: PropTypes.fund }),
   index: PropTypes.number,
+  isLandscape: PropTypes.bool,
 };
 
 export default withCursor(ArticlePreview);

@@ -3,27 +3,44 @@ import { RichText } from "prismic-reactjs";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { compose } from "../../../utils/classNames";
 import htmlSerializer from "../../../utils/htmlSerializer";
 
 const alignMapper = {
-  image_on_right: "flex-row-reverse",
-  image_on_left: "flex-row",
+  image_on_right: "flex-col-reverse sm:flex-row-reverse",
+  image_on_left: "flex-col sm:flex-row",
 };
 
 const PrismicBlogPostBodyTexteIllustre = ({ slice, sliceIndex }) => {
   return (
     <div
-      className={compose([
-        "my-8 flex justify-evenly items-center ",
-        alignMapper[slice.label] || "flex-row",
-      ])}
+      className={`
+        my-16
+        sm:my-8
+        max-w-full 
+        h-max-content
+        flex 
+        justify-evenly 
+        items-center
+        ${alignMapper[slice.label] || "flex-col sm:flex-row"}
+        `}
     >
       <img
-        className="w-96 shadow-xl rounded-lg"
+        className={`
+        w-96
+        max-w-full
+        shadow-xl
+        rounded-lg
+        `}
         src={slice.primary.illustration.url}
       ></img>
-      <div className="w-112">
+      <div
+        className={`
+      w-112
+      max-w-full
+      my-4
+      sm:my-0
+      `}
+      >
         {slice.fields.map(({ text_field }, index) => (
           <div key={`${sliceIndex}-${index}`}>
             <RichText

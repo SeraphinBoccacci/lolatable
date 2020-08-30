@@ -10,9 +10,12 @@ const MenuButton = ({ setIsMenuOpenned, isMenuOpenned }) => {
   const breakpoint = useBreakpoint();
 
   return breakpoint.sm ? (
-    <div className={style.menu}>
-      <MenuSVG onClick={() => setIsMenuOpenned(true)}></MenuSVG>
-    </div>
+    <button
+      className={compose([style.menu])}
+      onClick={() => setIsMenuOpenned(true)}
+    >
+      <MenuSVG></MenuSVG>
+    </button>
   ) : (
     <button
       className={compose([style.menu, style.menuBig])}
