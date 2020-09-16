@@ -31,6 +31,7 @@ const switchCursor = {
 
 const CursorProvider = ({ children }) => {
   const [cursor, setCursor] = useState(false);
+  const [isCustomCursorEnabled, setIsCustomCursorEnabled] = useState(false);
   const ref = useRef();
 
   const onMouseMove = (event) => {
@@ -44,6 +45,9 @@ const CursorProvider = ({ children }) => {
 
   useEffect(() => {
     document.addEventListener("mousemove", onMouseMove);
+
+    if (window.innerHeight > 800 && window.innerWidth > 1280)
+      setIsCustomCursorEnabled(true);
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
@@ -65,33 +69,34 @@ const CursorProvider = ({ children }) => {
 
   return (
     <CursorContext.Provider value={{ onCursor }}>
-      <div className={compose([style.movable])} ref={ref}>
-        <AnimatePresence>
-          {CursorNode ? (
-            <motion.div
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              variants={switchCursor}
-              key="other"
-            >
-              <CursorNode></CursorNode>
-            </motion.div>
-          ) : (
-            <motion.div
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              variants={switchCursor}
-              key="initial"
-              className="w-full transform"
-            >
-              <Fork></Fork>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
+      {isCustomCursorEnabled ? (
+        <div className={compose([style.movable])} ref={ref}>
+          <AnimatePresence>
+            {CursorNode ? (
+              <motion.div
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={switchCursor}
+                key="other"
+              >
+                <CursorNode></CursorNode>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={switchCursor}
+                key="initial"
+                className="w-full transform"
+              >
+                <Fork></Fork>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ) : null}
       {children}
     </CursorContext.Provider>
   );

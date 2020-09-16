@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import htmlSerializer from "../../../utils/htmlSerializer";
+import style from "./style.module.css";
 
 const alignMapper = {
-  image_on_right: "flex-col-reverse sm:flex-row-reverse",
-  image_on_left: "flex-col sm:flex-row",
+  image_on_right: style.right_alignment,
+  image_on_left: style.left_alignment,
 };
 
 const PrismicBlogPostBodyTexteIllustre = ({ slice, sliceIndex }) => {
@@ -21,7 +22,7 @@ const PrismicBlogPostBodyTexteIllustre = ({ slice, sliceIndex }) => {
         flex 
         justify-evenly 
         items-center
-        ${alignMapper[slice.label] || "flex-col sm:flex-row"}
+        ${alignMapper[slice.label] || style.left_alignment}
         `}
     >
       <img
@@ -38,7 +39,6 @@ const PrismicBlogPostBodyTexteIllustre = ({ slice, sliceIndex }) => {
       w-112
       max-w-full
       my-4
-      sm:my-0
       `}
       >
         {slice.fields.map(({ text_field }, index) => (

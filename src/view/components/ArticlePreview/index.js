@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import withCursor from "../../../HOCs/withCursor";
 import { compose } from "../../../utils/classNames";
+import style from "./style.module.css";
 
 const ArticlePreview = (props) => {
   const {
@@ -27,11 +28,11 @@ const ArticlePreview = (props) => {
         onMouseLeave={() => onCursor(false)}
         onClick={() => onCursor(false)}
         className={compose([
+          style.container,
           "rounded-lg",
           "relative",
           "bg-transparent",
           "my-10",
-          "sm:mx-10",
           "overflow-hidden",
           "shadow-xl",
           "w-max-content",
@@ -50,9 +51,9 @@ const ArticlePreview = (props) => {
             "z-10",
             "bg-white",
             "bg-opacity-0",
-            "hover:bg-opacity-50",
             "duration-200",
             "group",
+            "hover:bg-opacity-50",
           ])}
         ></div>
         <div
@@ -65,21 +66,7 @@ const ArticlePreview = (props) => {
           className={`
           duration-500
           rounded-lg
-          ${
-            isLandscape
-              ? `
-              h-48
-              md:h-64
-              w-72 
-              md:w-80
-              `
-              : `
-              w-48
-              md:w-64
-              h-72
-              md:h-80
-              `
-          }
+          ${isLandscape ? style.horizontal_content : style.vertical_content}
           ${isHover ? "translate-z-100" : "translate-z-0"}
           max-w-full
           `}

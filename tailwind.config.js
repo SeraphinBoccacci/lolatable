@@ -18,11 +18,6 @@ module.exports = {
       third: ["Montserrat", "serif"],
     },
     extend: {
-      screens: {
-        tablet: "320px",
-        laptop: "720px",
-        desktop: "1024px",
-      },
       rotate: {
         "-5": "-5deg",
         135: "135deg",
