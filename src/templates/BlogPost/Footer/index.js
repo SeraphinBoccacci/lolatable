@@ -4,6 +4,7 @@ import React from "react";
 
 import ArticlePreview from "../../../view/components/ArticlePreview";
 import ShareButton from "../../../view/components/ShareButton";
+import style from "./style.module.css";
 
 const Footer = ({ posts }) => {
   return (
@@ -23,7 +24,7 @@ const Footer = ({ posts }) => {
           <h3 className="w-max-content mx-auto my-8 font-second text-xl">
             Plus d'articles :
           </h3>
-          <div className="flex flex-col justify-evenly items-center my-16 px-10">
+          <div className={style.more_posts}>
             {posts.map((post) => {
               const isLandscape =
                 post.cover_image.dimensions.height <

@@ -11,7 +11,7 @@ const Header = ({ articleTitle, imageSrc, articleDate }) => {
       className={`
     sm:h-max-content 
     sm:w-max-content 
-    max-w-screen 
+    max-w-height-screen
     mx-auto 
     overflow-hidden 
     my-8

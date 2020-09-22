@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
+import SEO from "../../view/components/seo";
 import Layout from "../../view/layouts/mainLayout";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -27,6 +28,12 @@ const BlogPost = ({
 
   return (
     <Layout>
+      <SEO
+        metaTitle={blog_post.article_title}
+        metaDescription={`Lisez dès que maintenant mon nouvel article sur ${blog_post.article_title} !`}
+        metaUrl={`https://lolatable.fr/blog_post/${blog_post._meta.uid}`}
+        metaImage={blog_post.cover_image.url}
+      ></SEO>
       <Header
         articleTitle={blog_post.article_title}
         articleDate={
@@ -39,7 +46,7 @@ const BlogPost = ({
           const Slice = sliceMapper[slice.__typename];
 
           return Slice ? (
-            <Slice sliceIndex={sliceIndex} slice={slice} key={slice.id}></Slice>
+            <Slice sliceIndex={slice.id} slice={slice} key={slice.id}></Slice>
           ) : null;
         })}
       </main>
@@ -62,6 +69,7 @@ BlogPost.propTypes = {
         }),
         _meta: {
           last_publication_date: PropTypes.string,
+          uid: PropTypes.string,
         },
       }),
       prevArticle: PropTypes.shape({

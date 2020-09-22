@@ -11,3 +11,13 @@
 
   @apply absolute z-10 bottom-0 w-screen;
 }
+
+.welcomeMsg {
+  @apply relative mx-auto z-50 mt-8 mb-12 w-180 p-4 max-w-width-screen text-base leading-6 font-second text-center h-max-content;
+}
+
+@media only screen and (min-width: 900px) {
+  .welcomeMsg {
+    @apply mt-12 mb-20 text-lg;
+  }
+}

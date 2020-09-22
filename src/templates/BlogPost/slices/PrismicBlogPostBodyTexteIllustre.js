@@ -42,7 +42,7 @@ const PrismicBlogPostBodyTexteIllustre = ({ slice, sliceIndex }) => {
       `}
       >
         {slice.fields.map(({ text_field }, index) => (
-          <div key={`${sliceIndex}-${index}`}>
+          <div key={`PrismicBlogPostBodyTexteIllustre-${sliceIndex}-${index}`}>
             <RichText
               render={text_field}
               htmlSerializer={htmlSerializer}

@@ -13,7 +13,7 @@ html * {
   @apply cursor-auto;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 800px) {
   html,
   html * {
     @apply cursor-none;

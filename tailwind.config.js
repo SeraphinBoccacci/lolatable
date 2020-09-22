@@ -23,6 +23,8 @@ module.exports = {
         135: "135deg",
       },
       spacing: {
+        "width-screen": "100vw",
+        "height-screen": "100vh",
         "max-content": "max-content",
         "72": "18rem",
         "80": "20rem",
@@ -31,6 +33,7 @@ module.exports = {
         "128": "32rem",
         "144": "36rem",
         "160": "40rem",
+        "180": "50rem",
       },
       width: {
         "11/10": "150%",
@@ -40,7 +43,8 @@ module.exports = {
         header: "70px",
       },
       maxWidth: {
-        screen: "100vh",
+        "width-screen": "100vw",
+        "height-screen": "100vh",
       },
       cursor: {
         auto: "auto",

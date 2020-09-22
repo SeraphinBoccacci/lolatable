@@ -9,80 +9,47 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-function SEO({ lang, meta, title }) {
-  // const { site } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       site {
-  //         siteMetadata {
-  //           title
-  //           description
-  //           author
-  //         }
-  //       }
-  //     }
-  //   `
-  // );
-
-  const metaDescription = "hello";
-  // const metaDescription = description || site.siteMetadata.description;
-
+function SEO({ lang, metaTitle, metaDescription, metaUrl, metaImage }) {
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      // titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaTitle}
       meta={[
-        {
-          name: "description",
-          content: metaDescription,
-        },
-        {
-          property: "og:title",
-          content: title,
-        },
-        {
-          property: "og:description",
-          content: metaDescription,
-        },
-        {
-          property: "og:type",
-          content: "website",
-        },
-        {
-          name: "twitter:card",
-          content: "summary",
-        },
-        {
-          name: "twitter:creator",
-          // content: site.siteMetadata.author,
-        },
-        {
-          name: "twitter:title",
-          content: title,
-        },
-        {
-          name: "twitter:description",
-          content: metaDescription,
-        },
-      ].concat(meta)}
+        { name: "title", content: metaTitle },
+        { name: "description", content: metaDescription },
+
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: metaUrl },
+        { property: "og:title", content: metaTitle },
+        { property: "og:description", content: metaDescription },
+        { property: "og:image", content: metaImage },
+
+        { property: "twitter:card", content: "summary_large_image" },
+        { property: "twitter:url", content: metaUrl },
+        { property: "twitter:title", content: metaTitle },
+        { property: "twitter:description", content: metaDescription },
+        { property: "twitter:image", content: metaImage },
+      ]}
     />
   );
 }
 
 SEO.defaultProps = {
-  lang: "en",
-  meta: [],
-  description: "",
+  lang: "fr",
+  metaTitle: "Lol'à Table",
+  metaDescription: "",
+  metaUrl: "https://lolatable.fr",
+  metaImage: "",
 };
 
 SEO.propTypes = {
-  description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  metaTitle: PropTypes.string,
+  metaDescription: PropTypes.string,
+  metaUrl: PropTypes.string,
+  metaImage: PropTypes.string,
 };
 
 export default SEO;

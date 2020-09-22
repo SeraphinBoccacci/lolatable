@@ -15,7 +15,10 @@ const PrismicBlogPostBodyTexte = ({ slice, sliceIndex }) => (
   `}
   >
     {slice.fields.map(({ text_field }, index) => (
-      <div key={`${sliceIndex}-${index}`} className="my-8">
+      <div
+        key={`PrismicBlogPostBodyTexte-${sliceIndex}-${index}`}
+        className="my-8"
+      >
         <RichText
           render={text_field}
           htmlSerializer={htmlSerializer}

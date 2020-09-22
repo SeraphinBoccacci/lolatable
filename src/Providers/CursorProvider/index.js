@@ -46,8 +46,7 @@ const CursorProvider = ({ children }) => {
   useEffect(() => {
     document.addEventListener("mousemove", onMouseMove);
 
-    if (window.innerHeight > 800 && window.innerWidth > 1280)
-      setIsCustomCursorEnabled(true);
+    if (window.innerWidth > 800) setIsCustomCursorEnabled(true);
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);

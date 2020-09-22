@@ -27,6 +27,15 @@ const HomeTemplate = (props) => {
     currentScrolledHeight.current = scrolled;
   };
 
+  const isItAboutMeArticle = ({ node }) =>
+    node._meta.uid === "about-m" || node._meta.uid === "about-me";
+
+  const articles = data?.prismic?.allBlog_posts?.edges.filter(
+    (article) => !isItAboutMeArticle(article)
+  );
+
+  const aboutMe = data?.prismic?.allBlog_posts?.edges.find(isItAboutMeArticle);
+
   return (
     <Layout headerHeight={headerHeight}>
       <SEO title="Home" />
@@ -39,6 +48,7 @@ const HomeTemplate = (props) => {
         ])}
       >
         <div className={style.top_fader}></div>
+
         <div
           ref={componentRef}
           onScroll={handleScroll}
@@ -53,6 +63,38 @@ const HomeTemplate = (props) => {
             "overflow-scroll",
           ])}
         >
+          <div className={style.welcomeMsg}>
+            <p>
+              Bienvenue sur le blog Lol’à Table. Je suis ravie de vous
+              accueillir et de partager avec vous mes différents coups de coeur
+              restaurants lyonnais et parisiens. J’ai pour but de découvrir des
+              restaurants dans d’autre villes mais commençons déjà par ces deux
+              là. Je vous laisse découvrir les articles et espère que cela va
+              vous plaire !
+            </p>
+            <p className="mt-6">
+              Si vous voulez en savoir plus sur moi, je vous invite à lire
+              <b> mon About Me </b>juste en dessous !
+            </p>
+            <div className="flex flex-row justify-center">
+              {aboutMe ? (
+                <ArticlePreview
+                  key={aboutMe.node._meta.uid}
+                  to={`/blog_post/${aboutMe.node._meta.uid}`}
+                  articleDate={
+                    aboutMe.node.article_date ||
+                    aboutMe.node._meta.last_publication_date
+                  }
+                  articleTitle={aboutMe.node.article_title}
+                  image={aboutMe.node.cover_image.url}
+                  isLandscape={
+                    aboutMe.node.cover_image.dimensions.height <
+                    aboutMe.node.cover_image.dimensions.width
+                  }
+                ></ArticlePreview>
+              ) : null}
+            </div>
+          </div>
           <div
             className={compose([
               "mx-6",
@@ -64,24 +106,26 @@ const HomeTemplate = (props) => {
               "h-max-content",
             ])}
           >
-            {data?.prismic?.allBlog_posts?.edges.map(({ node }) => {
-              const isLandscape =
-                node.cover_image.dimensions.height <
-                node.cover_image.dimensions.width;
+            {(articles &&
+              articles.map(({ node }) => {
+                const isLandscape =
+                  node.cover_image.dimensions.height <
+                  node.cover_image.dimensions.width;
 
-              return node.cover_image.url ? (
-                <ArticlePreview
-                  key={node._meta.uid}
-                  to={`/blog_post/${node._meta.uid}`}
-                  articleDate={
-                    node.article_date || node._meta.last_publication_date
-                  }
-                  articleTitle={node.article_title}
-                  image={node.cover_image.url}
-                  isLandscape={isLandscape}
-                ></ArticlePreview>
-              ) : null;
-            }) || null}
+                return node.cover_image.url ? (
+                  <ArticlePreview
+                    key={node._meta.uid}
+                    to={`/blog_post/${node._meta.uid}`}
+                    articleDate={
+                      node.article_date || node._meta.last_publication_date
+                    }
+                    articleTitle={node.article_title}
+                    image={node.cover_image.url}
+                    isLandscape={isLandscape}
+                  ></ArticlePreview>
+                ) : null;
+              })) ||
+              null}
           </div>
         </div>
         <div className={style.bottom_fader}></div>

@@ -1,12 +1,13 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 import { compose } from "../../../utils/classNames";
 import { SocialNetwork } from "../SocialNetwork";
 import style from "./style.module.css";
 
-const ShareButton = () => {
+const ShareButton = ({ shareUrl }) => {
   return (
-    <button className={compose([style.btn_share])}>
+    <div className={compose([style.btn_share])}>
       <span className={style.btn_text}>Share</span>
       <span className={style.btn_icon}>
         <svg
@@ -25,20 +26,28 @@ const ShareButton = () => {
       </span>
       <ul className={compose([style.social_icons])}>
         <li>
-          <SocialNetwork type="facebook"></SocialNetwork>
+          <SocialNetwork shareUrl={shareUrl} type="facebook"></SocialNetwork>
         </li>
         <li>
-          <SocialNetwork type="twitter"></SocialNetwork>
+          <SocialNetwork shareUrl={shareUrl} type="twitter"></SocialNetwork>
         </li>
         <li>
-          <SocialNetwork type="instagram"></SocialNetwork>
+          <SocialNetwork shareUrl={shareUrl} type="instagram"></SocialNetwork>
         </li>
         <li>
-          <SocialNetwork type="linkedin"></SocialNetwork>
+          <SocialNetwork shareUrl={shareUrl} type="linkedin"></SocialNetwork>
         </li>
       </ul>
-    </button>
+    </div>
   );
+};
+
+ShareButton.defaultProps = {
+  shareUrl: "https://lolatable.fr",
+};
+
+ShareButton.propTypes = {
+  shareUrl: PropTypes.string,
 };
 
 export default ShareButton;

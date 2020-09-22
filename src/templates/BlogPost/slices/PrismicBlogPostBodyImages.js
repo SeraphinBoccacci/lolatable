@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { compose } from "../../../utils/classNames";
 import style from "./style.module.css";
 
-const PrismicBlogPostBodyTexte = ({ slice, sliceIndex }) => {
+const PrismicBlogPostBodyImages = ({ slice, sliceIndex }) => {
   const [hasArrows, setHasArrows] = useState(false);
   const container = useRef();
   const content = useRef();
@@ -43,7 +43,7 @@ my-12
         >
           {slice.fields.map(({ image }, index) => (
             <img
-              key={`${sliceIndex}-${index}`}
+              key={`PrismicBlogPostBodyImages-${sliceIndex}-${index}`}
               className={`
         w-96 
         shadow-xl 
@@ -59,7 +59,7 @@ my-12
   );
 };
 
-PrismicBlogPostBodyTexte.propTypes = {
+PrismicBlogPostBodyImages.propTypes = {
   slice: PropTypes.shape({
     id: PropTypes.string,
     fields: PropTypes.arrayOf(
@@ -73,4 +73,4 @@ PrismicBlogPostBodyTexte.propTypes = {
   sliceIndex: PropTypes.number,
 };
 
-export default PrismicBlogPostBodyTexte;
+export default PrismicBlogPostBodyImages;

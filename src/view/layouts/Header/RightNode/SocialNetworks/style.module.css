@@ -1,10 +1,10 @@
 .social {
-  width: 12rem;
+  width: 8rem;
   transform: translateY(-50%) skew(8deg);
   top: 50%;
   transform-style: preserve-3d;
 
-  @apply relative flex flex-row justify-evenly h-max-content;
+  @apply relative flex flex-row justify-center h-max-content;
 }
 
 @media only screen and (max-width: 800px) {
