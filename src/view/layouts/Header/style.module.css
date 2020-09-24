@@ -4,3 +4,13 @@
   @apply fixed z-20 w-screen h-header flex flex-row
     justify-between px-6;
 }
+
+.mainTitle {
+  @apply mx-4 text-2xl my-auto;
+}
+
+@media only screen and (min-width: 380px) {
+  .mainTitle {
+    @apply text-4xl;
+  }
+}

@@ -9,12 +9,14 @@ import Layout from "../../view/layouts/mainLayout";
 import Footer from "./Footer";
 import Header from "./Header";
 import PrismicBlogPostBodyImages from "./slices/PrismicBlogPostBodyImages";
+import PrismicBlogPostBodyReseaux from "./slices/PrismicBlogPostBodyReseaux";
 import PrismicBlogPostBodyTexte from "./slices/PrismicBlogPostBodyTexte";
 import PrismicBlogPostBodyTexteIllustre from "./slices/PrismicBlogPostBodyTexteIllustre";
 const sliceMapper = {
   PRISMIC_Blog_postBodyTexte: PrismicBlogPostBodyTexte,
   PRISMIC_Blog_postBodyTexte_illustre: PrismicBlogPostBodyTexteIllustre,
   PRISMIC_Blog_postBodyGallerie_d_image_s_: PrismicBlogPostBodyImages,
+  PRISMIC_Blog_postBodyReseaux: PrismicBlogPostBodyReseaux,
 };
 
 const BlogPost = ({
@@ -26,12 +28,14 @@ const BlogPost = ({
 
   const posts = [prevArticle, nextArticle].filter(Boolean);
 
+  const metaUrl = `https://lolatable.fr/blog_post/${blog_post._meta.uid}`;
+
   return (
     <Layout>
       <SEO
         metaTitle={blog_post.article_title}
-        metaDescription={`Lisez dès que maintenant mon nouvel article sur ${blog_post.article_title} !`}
-        metaUrl={`https://lolatable.fr/blog_post/${blog_post._meta.uid}`}
+        metaDescription={`Lisez dès maintenant mon nouvel article sur ${blog_post.article_title} !`}
+        metaUrl={metaUrl}
         metaImage={blog_post.cover_image.url}
       ></SEO>
       <Header
@@ -42,7 +46,7 @@ const BlogPost = ({
         imageSrc={blog_post.cover_image.url}
       ></Header>
       <main className="w-screen my-12 px-12 font-third">
-        {blog_post.body.map((slice, sliceIndex) => {
+        {blog_post.body.map((slice) => {
           const Slice = sliceMapper[slice.__typename];
 
           return Slice ? (
@@ -50,7 +54,7 @@ const BlogPost = ({
           ) : null;
         })}
       </main>
-      <Footer posts={posts}></Footer>
+      <Footer shareUrl={metaUrl} posts={posts}></Footer>
     </Layout>
   );
 };

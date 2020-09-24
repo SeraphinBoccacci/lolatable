@@ -1,3 +1,4 @@
+import { Location } from "@reach/router";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 
@@ -63,38 +64,45 @@ const HomeTemplate = (props) => {
             "overflow-scroll",
           ])}
         >
-          <div className={style.welcomeMsg}>
-            <p>
-              Bienvenue sur le blog Lol’à Table. Je suis ravie de vous
-              accueillir et de partager avec vous mes différents coups de coeur
-              restaurants lyonnais et parisiens. J’ai pour but de découvrir des
-              restaurants dans d’autre villes mais commençons déjà par ces deux
-              là. Je vous laisse découvrir les articles et espère que cela va
-              vous plaire !
-            </p>
-            <p className="mt-6">
-              Si vous voulez en savoir plus sur moi, je vous invite à lire
-              <b> mon About Me </b>juste en dessous !
-            </p>
-            <div className="flex flex-row justify-center">
-              {aboutMe ? (
-                <ArticlePreview
-                  key={aboutMe.node._meta.uid}
-                  to={`/blog_post/${aboutMe.node._meta.uid}`}
-                  articleDate={
-                    aboutMe.node.article_date ||
-                    aboutMe.node._meta.last_publication_date
-                  }
-                  articleTitle={aboutMe.node.article_title}
-                  image={aboutMe.node.cover_image.url}
-                  isLandscape={
-                    aboutMe.node.cover_image.dimensions.height <
-                    aboutMe.node.cover_image.dimensions.width
-                  }
-                ></ArticlePreview>
-              ) : null}
-            </div>
-          </div>
+          <Location>
+            {({ location }) =>
+              location.pathname === "/" ? (
+                <div className={style.welcomeMsg}>
+                  <p>
+                    Bienvenue sur le blog Lol’à Table. Je suis ravie de vous
+                    accueillir et de partager avec vous mes différents coups de
+                    coeur restaurants lyonnais et parisiens. J’ai pour but de
+                    découvrir des restaurants dans d’autre villes mais
+                    commençons déjà par ces deux là. Je vous laisse découvrir
+                    les articles et espère que cela va vous plaire !
+                  </p>
+                  <p className="mt-6">
+                    Si vous voulez en savoir plus sur moi, je vous invite à lire
+                    <b> mon About Me </b>juste en dessous !
+                  </p>
+                  <div className="flex flex-row justify-center">
+                    {aboutMe ? (
+                      <ArticlePreview
+                        key={aboutMe.node._meta.uid}
+                        to={`/blog_post/${aboutMe.node._meta.uid}`}
+                        articleDate={
+                          aboutMe.node.article_date ||
+                          aboutMe.node._meta.last_publication_date
+                        }
+                        articleTitle={aboutMe.node.article_title}
+                        image={aboutMe.node.cover_image.url}
+                        isLandscape={
+                          aboutMe.node.cover_image.dimensions.height <
+                          aboutMe.node.cover_image.dimensions.width
+                        }
+                      ></ArticlePreview>
+                    ) : null}
+                  </div>
+                </div>
+              ) : null
+            }
+          </Location>
+
           <div
             className={compose([
               "mx-6",

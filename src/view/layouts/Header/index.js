@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Location } from "@reach/router";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -30,7 +29,7 @@ const Header = (props) => {
           >
             <div className="flex flex-row">
               {hasLogo ? <Logo></Logo> : null}
-              <h1 className="mx-4 text-4xl my-auto">Lol'à Table</h1>
+              <h1 className={style.mainTitle}>Lol'à Table</h1>
             </div>
           </Link>
         </h1>

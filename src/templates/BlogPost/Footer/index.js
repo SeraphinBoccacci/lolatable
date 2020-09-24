@@ -6,7 +6,7 @@ import ArticlePreview from "../../../view/components/ArticlePreview";
 import ShareButton from "../../../view/components/ShareButton";
 import style from "./style.module.css";
 
-const Footer = ({ posts }) => {
+const Footer = ({ posts, shareUrl }) => {
   return (
     <footer
       className={`
@@ -16,7 +16,7 @@ const Footer = ({ posts }) => {
     `}
     >
       <div className="w-max-content mx-auto my-12">
-        <ShareButton></ShareButton>
+        <ShareButton shareUrl={shareUrl}></ShareButton>
       </div>
       <hr></hr>
       {posts.length ? (
@@ -53,6 +53,7 @@ const Footer = ({ posts }) => {
 
 Footer.propTypes = {
   posts: PropTypes.array,
+  shareUrl: PropTypes.string,
 };
 
 export default Footer;

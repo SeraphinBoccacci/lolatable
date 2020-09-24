@@ -32,6 +32,25 @@
   @apply flex-col;
 }
 
+.siteLinkCaption {
+  @apply text-center text-sm font-second mb-6;
+}
+
+.siteLink {
+  @apply relative font-main mx-auto text-lg text-center w-max-content block;
+}
+
+.siteLink::before {
+  content: "";
+  height: 2px;
+
+  @apply absolute bottom-0 left-0 w-full bg-primary duration-300;
+}
+
+.siteLink:hover::before {
+  height: 10px;
+}
+
 @media only screen and (min-width: 1000px) {
   .imagesGallery {
     position: relative;
@@ -59,5 +78,13 @@
 
   .galleryWithArrows::after {
     right: -6rem;
+  }
+
+  .siteLinkCaption {
+    @apply text-xl;
+  }
+
+  .siteLink {
+    @apply text-2xl;
   }
 }
