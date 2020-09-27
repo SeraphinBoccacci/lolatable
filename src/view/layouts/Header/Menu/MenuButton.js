@@ -12,7 +12,7 @@ const MenuButton = ({ setIsMenuOpenned, isMenuOpenned }) => {
   return breakpoint.sm ? (
     <button
       className={compose([style.menu])}
-      onClick={() => setIsMenuOpenned(true)}
+      onClick={() => setIsMenuOpenned(false)}
     >
       <MenuSVG></MenuSVG>
     </button>

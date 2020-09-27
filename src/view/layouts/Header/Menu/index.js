@@ -42,6 +42,7 @@ const Menu = () => {
     <div
       onMouseEnter={() => setIsMenuOpenned(true)}
       onMouseLeave={() => setIsMenuOpenned(false)}
+      onClick={() => setIsMenuOpenned(!isMenuOpenned)}
       className="h-full"
     >
       <MenuButton

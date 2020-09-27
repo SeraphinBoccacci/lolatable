@@ -3,7 +3,7 @@
 }
 
 .menu {
-  @apply w-32;
+  @apply w-max-content;
 }
 
 .menuBig {

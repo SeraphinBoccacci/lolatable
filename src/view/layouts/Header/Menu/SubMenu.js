@@ -15,7 +15,9 @@ const SubMenu = ({ city, index, opennedSubMenuIndex }) => {
       {city.subMenu.map((category, indexCat) => (
         <Link
           key={`city-${index}-sub-menu-category-${indexCat}`}
-          to={`/${city.value}/${category.value}`}
+          to={`/${city.value}`}
+          // TO-DO add categories
+          // to={`/${city.value}/${category.value}`}
         >
           <h5 className={style.menuSubElement}>{category.label}</h5>
         </Link>
@@ -36,7 +38,9 @@ const SubMenu = ({ city, index, opennedSubMenuIndex }) => {
             {city.subMenu.map((category, indexCat) => (
               <Link
                 key={`city-${index}-sub-menu-category-${indexCat}`}
-                to={`/${city.value}/${category.value}`}
+                to={`/${city.value}`}
+                // TO-DO add categories
+                // to={`/${city.value}/${category.value}`}
               >
                 <h5 className={style.menuSubElement}>{category.label}</h5>
               </Link>
